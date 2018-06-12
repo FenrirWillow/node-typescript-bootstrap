@@ -28,7 +28,7 @@ class DependencyContainer {
 
     DependencyContainer.instance.loadModules(
       [
-        'routes/**/*.js',
+        'routes/**/*.ts',
       ],
       {
         formatName: formatRouterModuleName,

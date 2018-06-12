@@ -1,4 +1,3 @@
-import { AwilixContainer } from 'awilix';
 import { Logger } from 'winston';
 import * as express from 'express';
 import * as responseTime from 'response-time';
@@ -8,9 +7,14 @@ const responseTimeLogger = (logger: Logger) =>
     logger.debug(`Completed ${req.method} ${req.originalUrl} in ${time.toFixed(4)}ms`);
   };
 
-function expressServerFactory(cradle:any) {
+interface IExpressServerFactoryArgs {
+  logger: Logger;
+  indexRouter: express.Router;
+}
+
+function expressServerFactory(cradle: IExpressServerFactoryArgs) {
   const logger: Logger = cradle.logger;
-  // const indexRouter: express.Router = cradle.indexRouter;
+  const indexRouter: express.Router = cradle.indexRouter;
 
   return new Promise((resolve) => {
     logger.debug('Running expressServerFactory...');
@@ -25,7 +29,7 @@ function expressServerFactory(cradle:any) {
 
     server.listen(port, () => {
       logger.info(`Express server has started on port ${port}`);
-      // server.use('/api/v1/', indexRouter);
+      server.use('/api/v1/', indexRouter);
       resolve();
     });
   });
