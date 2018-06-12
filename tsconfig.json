@@ -8,6 +8,7 @@
     "allowSyntheticDefaultImports": true,
     "strictNullChecks": true,
     "outDir": "./dist",
+    "experimentalDecorators": true,
   },
   "exclude": [ "tests/**/*" ],
 }

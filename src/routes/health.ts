@@ -8,7 +8,7 @@ interface IHealthRouterArgs {
 function createHealthRouter(services: IHealthRouterArgs) {
   const healthRouter = Router();
 
-  healthRouter.get('/', services.healthController.reportHealthStats.bind(HealthController));
+  healthRouter.get('/', services.healthController.reportHealthStats);
 
   return healthRouter;
 }
