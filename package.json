@@ -6,10 +6,11 @@
   "scripts": {
     "start:dev": "nodemon -w src/ -x ts-node src/main.ts",
     "start:prod": "node dist/main.js",
+    "start:docker": "docker run -it -p 3000:3000 node-typescript-bootstrap",
     "test": "jest --config config/jest.config.json",
     "clean:dist": "rm -rf ./dist",
     "build:dist": "tsc",
-    "build:docker": "docker build -t node-bootstrap ."
+    "build:docker": "docker build -t node-typescript-bootstrap ."
   },
   "repository": {
     "type": "git",
