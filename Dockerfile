@@ -1,4 +1,4 @@
-FROM node:10.4.0-slim
+FROM node:10.4.1-slim
 
 RUN cd /opt/ && mkdir node-typescript-bootstrap
 WORKDIR opt/node-typescript-bootstrap
