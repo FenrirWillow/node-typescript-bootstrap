@@ -14,11 +14,13 @@ class DependencyContainer {
     DependencyContainer.instance.loadModules(
       [
         'controllers/**/*.ts',
+        'controllers/**/*.js',
         'services/**/*.ts',
+        'services/**/*.js',
       ],
       {
         formatName: 'camelCase',
-        cwd: path.join(process.cwd(), 'src'),
+        cwd: __dirname,
         resolverOptions: {
           lifetime: Awilix.Lifetime.SINGLETON,
           register: Awilix.asClass,
@@ -29,10 +31,11 @@ class DependencyContainer {
     DependencyContainer.instance.loadModules(
       [
         'routes/**/*.ts',
+        'routes/**/*.js',
       ],
       {
         formatName: formatRouterModuleName,
-        cwd: path.join(process.cwd(), 'src'),
+        cwd: __dirname,
         resolverOptions: {
           lifetime: Awilix.Lifetime.SINGLETON,
           register: Awilix.asFunction,
