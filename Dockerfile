@@ -6,7 +6,7 @@ WORKDIR opt/node-typescript-bootstrap
 COPY package.json yarn.lock ./
 RUN yarn install --frozen-lockfile
 
-COPY . /opt/node-bootstrap
+COPY . /opt/node-typescript-bootstrap
 
 RUN yarn clean:dist
 RUN yarn build:dist
